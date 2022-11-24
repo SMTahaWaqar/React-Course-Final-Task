@@ -1,7 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import logo from "../logo.svg"
 
@@ -22,6 +21,7 @@ function BasicExample() {
           <Nav className="me-auto">
             <Nav.Link><Link to="/" style={{color: 'white', textDecoration: 'none'}}>Home</Link></Nav.Link>
             <Nav.Link><Link to="/login" style={{color: 'white', textDecoration: 'none'}}>Login</Link></Nav.Link>
+            <Nav.Link><Link to="/status" style={{color: 'white', textDecoration: 'none'}}>Status</Link></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

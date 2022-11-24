@@ -5,6 +5,7 @@ import BasicExample from './components/Navbar';
 import TestExample from './components/Home';
 import Login from './components/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Status from './components/Status';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<TestExample info={info}/>} />
         <Route exact path="/login" element={<Login />} /> 
+        <Route exact path="/status" element={<Status />} /> 
       </Routes>
     </BrowserRouter>
   );
