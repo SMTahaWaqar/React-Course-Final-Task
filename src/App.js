@@ -12,6 +12,8 @@ function App() {
 
   const [info, setInfo] = useState();
 
+  const [data, setData] = useState(false);
+
   const getData = () => {
     axios.get("http://localhost:8080/data")
     .then(res => {
@@ -21,6 +23,10 @@ function App() {
     .catch(err => console.error(err))
   }
 
+  const sendData = (data) => {
+    setData(data)
+  }
+
   useEffect(() => {
     getData();
   }, [])
@@ -28,10 +34,10 @@ function App() {
 
   return (
     <BrowserRouter>
-      <BasicExample />
+      <BasicExample data={data}/>
       <Routes>
         <Route exact path="/" element={<TestExample info={info}/>} />
-        <Route exact path="/login" element={<Login />} /> 
+        <Route exact path="/login" element={<Login sendData={sendData}/>} /> 
         <Route exact path="/status" element={<Status />} /> 
       </Routes>
     </BrowserRouter>

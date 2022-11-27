@@ -55,7 +55,7 @@ const Status = () => {
             onChange={handleChange}
           />
         </label>
-        <button type="submit" className="btn btn-primary">Login</button>
+        <button type="submit" className="btn btn-primary">Submit Status</button>
       </form>
       {statusSuccess && <h3 className='text-center'>{show}</h3>}
     </Container>

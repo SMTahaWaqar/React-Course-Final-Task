@@ -1,19 +1,17 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, {useState } from "react";
 import { Container } from "react-bootstrap";
-const Login = () => {
-    const [formValue, SetFormValue] = useState({
+const Login = (props) => {
+    const [formValue, setFormValue] = useState({
       email : "",
       password: ""
     })
 
-    const [loginSuccess, setLoginSuccess] = useState();
-
-    const [showForm, setShowForm] = useState(true);
+    const [success, setSuccess] = useState();
 
     const handleChange = (e) => {
       const {name, value} = e.target;
-      SetFormValue({...formValue, [name]:value});
+      setFormValue({...formValue, [name]:value});
       // console.log(formValue);
     }
 
@@ -23,23 +21,16 @@ const Login = () => {
       axios.post("http://localhost:8080/login", formValue)
       .then(res => {
         console.log(res.data.success)
-        setLoginSuccess(res.data.success)
+        props.sendData(res.data.success)
       })
       .catch(err => console.error(err));
-      if (loginSuccess){
-        setShowForm(false);
-      }
-      else {
-        alert("Incorrect Credentials")
-        setShowForm(true);
-      }
     }
+    
 
-  if (showForm) {
   return (
     <Container fluid className="my-4">
       <h1 className="text-center">Login Account</h1>
-       <form onSubmit={handleSubmit} className="d-flex justify-content-center align-items-center my-5" style={{flexDirection: "column", border: '2px solid black'}}>
+       <form onSubmit={handleSubmit} className="d-flex justify-content-center align-items-center my-5" style={{flexDirection: "column"}}>
          <label htmlFor="email" className="my-4">
            <h4>Email</h4>
            <input
@@ -63,7 +54,6 @@ const Login = () => {
         <button type="submit" className="btn btn-primary">Login</button>
       </form>
     </Container>
-
 
     // <div>
     //   <h1>Login Account</h1>
@@ -91,12 +81,4 @@ const Login = () => {
     // </div>
   );
   }
-  {
-    return(
-      <Container>
-        <h1 className="text-center">Login Successful!</h1>
-      </Container>
-    )
-  }
-};
 export default Login;

@@ -1,10 +1,12 @@
+import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import logo from "../logo.svg"
 
-function BasicExample() {
+function BasicExample(props) {
+  console.log(toString(props.data));
   return (
     <Navbar bg="dark" expand="lg" variant='dark' sticky='top'>
       <Container>
@@ -22,6 +24,7 @@ function BasicExample() {
             <Nav.Link><Link to="/" style={{color: 'white', textDecoration: 'none'}}>Home</Link></Nav.Link>
             <Nav.Link><Link to="/login" style={{color: 'white', textDecoration: 'none'}}>Login</Link></Nav.Link>
             <Nav.Link><Link to="/status" style={{color: 'white', textDecoration: 'none'}}>Status</Link></Nav.Link>
+            {(props.data) ?<Nav.Link><Button variant="success">Logged In</Button></Nav.Link> : <Nav.Link><Button variant="warning">Kindly Login</Button></Nav.Link>}
           </Nav>
         </Navbar.Collapse>
       </Container>
