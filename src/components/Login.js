@@ -7,8 +7,6 @@ const Login = (props) => {
       password: ""
     })
 
-    const [success, setSuccess] = useState();
-
     const handleChange = (e) => {
       const {name, value} = e.target;
       setFormValue({...formValue, [name]:value});
@@ -54,31 +52,6 @@ const Login = (props) => {
         <button type="submit" className="btn btn-primary">Login</button>
       </form>
     </Container>
-
-    // <div>
-    //   <h1>Login Account</h1>
-    //   <form onSubmit={handleSubmit}>
-    //     <label htmlFor="email">
-    //       Email
-    //       <input
-    //         type="email"
-    //         name="email"
-    //         value={formValue.email}
-    //         onChange={handleChange}
-    //       />
-    //     </label>
-    //     <label htmlFor="password">
-    //       Password
-    //       <input
-    //         type="password"
-    //         name="password"
-    //         value={formValue.password}
-    //         onChange={handleChange}
-    //       />
-    //     </label>
-    //     <button type="submit">Login</button>
-    //   </form>
-    // </div>
   );
   }
 export default Login;
